@@ -7,7 +7,7 @@
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <meta name="description" content="">
         <meta name="author" content="">
-        <link rel="icon" href="assets/favicon.ico">
+        <link rel="icon" href="static/assets/favicon.ico">
 
         <title>Andrew's Site</title>
 
@@ -21,7 +21,7 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
         <!-- Cover Styling -->
-        <link href="css/custom.css" rel="stylesheet">
+        <link href="static/css/custom.css" rel="stylesheet">
 
         <!-- Google Captcha -->
         <script src="https://www.google.com/recaptcha/api.js"></script>
@@ -56,6 +56,19 @@
             </div>
         </nav>
 
+        <div class="navbar-fixed-top">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, messages in messages %}
+                    <div class="alert alert-{{ category }}">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ category.capitalize() }}!</strong> {{ messages }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+
         <!-- Cover page -->
         <div class="site-wrapper" id="home">
             <div class="site-wrapper-inner">
@@ -72,7 +85,7 @@
                     <div class="mastfoot">
                         <div class="inner">
                             <a href="#about" class="btn btn-link hvr-grow">
-                                <img src="./assets/down_arrow.png" class="center-block">
+                                <img src="static/assets/down_arrow.png" class="center-block">
                             </a>
                         </div>
                     </div>
@@ -84,7 +97,7 @@
         <div class="container-fluid text-center bg-1" id="about">
             <div class="col-md-2"></div>
             <div class="col-md-2">
-                <img src="assets/profile.jpg" class="img-circle img-responsive center-block">
+                <img src="static/assets/profile.jpg" class="img-circle img-responsive center-block">
             </div>
             <div class="col-md-6">
                 <h2>
@@ -134,22 +147,25 @@
         <!-- Contact Page -->
         <div class="container-fluid text-center bg-3" id="contact">
             <h2>Contact Me</h2>
-            <form role="form" action="mailto:me@andrewlubawy.com" method="POST">
+            {% if error %}
+                <div class="alert alert-danger" role="alert"></div>
+            {% endif %}
+            <form role="form" action="{{ url_for('contact') }}" method="POST">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Jane Doe" required="true">
+                        <input type="text" class="form-control" name="name" placeholder="Jane Doe" required="true">
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="jdoe@example.com" required="true">
+                        <input type="email" class="form-control" name="email" placeholder="jdoe@example.com" required="true">
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea class="form-control" rows="5" id="message"></textarea>
+                        <textarea class="form-control" rows="5" name="message"></textarea>
                     </div>
-                    <div class="g-recaptcha form-group" data-sitekey="6LfD0yUTAAAAAESK9J9ClkeW3QzpF8D-Dfpnd05y"></div>
+                    <!--<div class="g-recaptcha form-group" data-sitekey="6LfD0yUTAAAAAESK9J9ClkeW3QzpF8D-Dfpnd05y"></div>-->
                     <input class="btn btn-default active" type="submit" value="Submit">
                 </div>
                 <div class="col-md-4"></div>
@@ -163,10 +179,10 @@
                 <div class="col-md-2">
                     <div class="btn-group">
                         <a type="button" class="btn btn-link" href="https://github.com/dlubawy" target="_blank">
-                            <img src="./assets/github_icon.png" class="img-responsive center-block">
+                            <img src="static/assets/github_icon.png" class="img-responsive center-block">
                         </a>
                         <a type="button" class="btn btn-link" href="https://www.linkedin.com/in/andrewlubawy" target="_blank">
-                            <img src="./assets/linkedin_icon.png" class="img-responsive center-block">
+                            <img src="static/assets/linkedin_icon.png" class="img-responsive center-block">
                         </a>
                     </div>
                 </div>
