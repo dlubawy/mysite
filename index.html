@@ -134,7 +134,7 @@
         <!-- Contact Page -->
         <div class="container-fluid text-center bg-3" id="contact">
             <h2>Contact Me</h2>
-            <form role="form">
+            <form role="form" action="mailto:me@andrewlubawy.com" method="POST">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
                     <div class="form-group">
@@ -147,10 +147,10 @@
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea class="form-control" rows="5"></textarea>
+                        <textarea class="form-control" rows="5" id="message"></textarea>
                     </div>
                     <div class="g-recaptcha form-group" data-sitekey="6LfD0yUTAAAAAESK9J9ClkeW3QzpF8D-Dfpnd05y"></div>
-                    <input class="btn btn-default" type="submit" value="Submit">
+                    <input class="btn btn-default active" type="submit" value="Submit">
                 </div>
                 <div class="col-md-4"></div>
             </form>
