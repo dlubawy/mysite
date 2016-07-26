@@ -12,6 +12,6 @@ and this seemed like an easy, yet reliable solution.
 
 ##Usage
 Use `git clone https://github.com/dlubawy/mysite.git` to clone the repo.  Then 
-`cd mysite`. Use `pip -r requirements.txt` to install dependencies. Change 
+`cd mysite`. Use `pip install -r requirements.txt` to install dependencies. Change 
 whatever you want and setup your environment with `export FLASK_APP=mysite.py`.  
 Finally run the app `flask run`.
