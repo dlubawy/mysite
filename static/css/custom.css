@@ -201,6 +201,11 @@ body {
     margin: 0 auto;
 }
 
+.form-group.required .control-label:after {
+    content: " *";
+    color: red;
+}
+
 @media (min-width: 992px) {
   .masthead,
   .mastfoot,
