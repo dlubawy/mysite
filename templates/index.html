@@ -104,10 +104,7 @@
                     Hello! I'm Andrew Lubawy.
                 </h2>
                 <p class="lead">
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                    tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-                    vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-                    no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+                    Student of electrical engineering and programmer. Hacker in the traditional sense through and through. I enjoy taking things apart and learning what makes something tick. I also enjoy creating things, so if you need something, I'll happily try and build it for you.
                 </p>
             </div>
             <div class="col-md-2"></div>
@@ -116,29 +113,30 @@
         <!-- Skills Page -->
         <div class="container-fluid text-center bg-2" id="skills">
             <h2>Skills</h2>
+            <br>
             <div class="col-md-2"></div>
             <div class="col-md-2">
+                <img src="../static/assets/embedded.jpeg" class="img-rounded" width="200" height="200">
                 <p class="lead">
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                    tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                    Embedded systems design with hardware programming proficiency in C and Verilog HDL.
                 </p>
             </div>
             <div class="col-md-2">
+                <img src="../static/assets/full_stack.jpeg" class="img-rounded" width="200" height="200">
                 <p class="lead">
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                    tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                    Full stack development. Backend programming with Django, Rails, and Flask. Frontend programming with JavaScript, HTML, and CSS.
                 </p>
             </div>
             <div class="col-md-2">
+                <img src="../static/assets/circuit.jpeg" class="img-rounded" width="200" height="200">
                 <p class="lead">
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                    tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                    Circuit design and debugging. Experince with soldering, oscilloscopes, multimeters, and software defined debugging tools.
                 </p>
             </div>
             <div class="col-md-2">
+                <img src="../static/assets/code.jpeg" class="img-rounded" width="200" height="200">
                 <p class="lead">
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                    tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                    Software development and object oriented language proficiency with Python, Java, C++, and Ruby.
                 </p>
             </div>
             <div class="col-md-2"></div>
@@ -147,9 +145,7 @@
         <!-- Contact Page -->
         <div class="container-fluid text-center bg-3" id="contact">
             <h2>Contact Me</h2>
-            {% if error %}
-                <div class="alert alert-danger" role="alert"></div>
-            {% endif %}
+            <br>
             <form role="form" action="{{ url_for('contact') }}" method="POST">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
