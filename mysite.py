@@ -11,8 +11,8 @@ app.config.from_pyfile('development.cfg', silent=True)
 def index():
     return render_template('index.html')
 
-@app.route('/contact', methods=['POST'])
-def contact():
+@app.route('/_contact', methods=['POST'])
+def _contact():
     error = None
     success = None
     if request.method == 'POST':
@@ -25,8 +25,8 @@ def contact():
         else:
             send_msg(request.form['name'], request.form['email'], request.form['message'])
             flash("Message sent.", "success")
-            return redirect("http://127.0.0.1:5000/#contact")
-    return redirect('http://127.0.0.1:5000/#contact')
+            return redirect(url_for("index", _anchor="contact"))
+    return redirect(url_for("index", _anchor="contact"))
 
 def check_captcha(response):
     data = {
