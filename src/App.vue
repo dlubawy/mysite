@@ -120,7 +120,7 @@
             <h2>Contact Me</h2>
           </div>
           <div class="row">
-            <ContactForm />
+            <ContactForm :user="user" />
           </div>
         </div>
         <br />
@@ -136,6 +136,7 @@
                 href="https://github.com/dlubawy"
                 target="_blank"
                 rel="noreferrer"
+                v-on:click="logClick('GitHub')"
               >
                 <img
                   src="./assets/github_icon.png"
@@ -149,6 +150,7 @@
                 href="https://www.linkedin.com/in/andrewlubawy"
                 target="_blank"
                 rel="noreferrer"
+                v-on:click="logClick('LinkedIn')"
               >
                 <img
                   src="./assets/linkedin_icon.png"
@@ -171,6 +173,9 @@
 import Navbar from "./components/Navbar.vue";
 import ContactForm from "./components/ContactForm.vue";
 
+import { auth, analytics } from "./firebaseConfig.js";
+import { logEvent } from "firebase/analytics";
+
 var tag = document.URL.split("#")[1];
 if (tag == null) {
   tag = "home";
@@ -178,9 +183,29 @@ if (tag == null) {
 
 export default {
   name: "App",
+  data() {
+    return {
+      user: "",
+    };
+  },
   components: {
     Navbar,
     ContactForm,
+  },
+  methods: {
+    logClick(id) {
+      logEvent(analytics, "select_content", {
+        content_type: "link",
+        item_id: id,
+      });
+    },
+  },
+  created() {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        this.user = user;
+      }
+    });
   },
 };
 </script>

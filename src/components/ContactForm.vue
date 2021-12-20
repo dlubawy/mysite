@@ -23,6 +23,17 @@
           v-model="email"
         />
       </div>
+      <div class="row required">
+        <label for="subject" class="control-label">Subject</label>
+        <input
+          type="text"
+          class="form-control"
+          name="subject"
+          placeholder="Subject"
+          required="true"
+          v-model="subject"
+        />
+      </div>
       <div class="row">
         <label for="message" class="control-label">Message</label>
         <textarea
@@ -42,18 +53,38 @@
 </template>
 
 <script>
+import { db } from "../firebaseConfig.js";
+import { collection, addDoc } from "firebase/firestore";
+
 export default {
   name: "ContactForm",
   data() {
     return {
       name: "",
       email: "",
+      subject: "",
       message: "",
     };
   },
+  props: {
+    user: String,
+  },
   methods: {
     send() {
-      console.log(`${this.name} - ${this.email}\n\n${this.message}`);
+      if (this.user != null) {
+        addDoc(collection(db, "mail"), {
+          toUids: ["0GHgDhqf3AmfYXVfSaiE"],
+          message: {
+            subject: this.subject,
+            text: `Name: ${this.name}\nEmail: ${this.email}\n\n${this.message}`,
+            html: `<span>Name: ${this.name}</span><br/><span>Email: ${this.email}</span><br/><p>${this.message}</p>`,
+          },
+        }).then(() => {
+          alert("Message sent!");
+        });
+      } else {
+        alert("Message rejected.");
+      }
     },
   },
 };

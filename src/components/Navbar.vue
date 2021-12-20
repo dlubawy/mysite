@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-dark bg-primary px-3 fixed-top">
+  <nav class="navbar navbar-dark bg-primary px-2 fixed-top">
     <ul class="nav nav-pills">
       <li class="nav-item">
         <a class="nav-link" href="#home">Home</a>
