@@ -1,17 +1,52 @@
 # MySite
 
 ## About
-This is my personal website which I built after being convinced to buy my 
-name's domain name. Figured it shouldn't stay empty. Very basic, built it from 
-[Bootstrap](http://getbootstrap.com/) then expanded to using 
-[Flask](http://flask.pocoo.org/) when I exceeded the scope of a static website 
-with my contact form. I used Flask because it is a microframework and I learned 
-my lesson using Django on a small app for a previous project. I used GroupMe as 
-the method for sending a message because I don't have access to an email relay 
-and this seemed like an easy, yet reliable solution.
+
+This is my personal website which I built after being convinced to buy my
+name's domain name. Figured it shouldn't stay empty. Very basic, built it from
+[Bootstrap](http://getbootstrap.com/) then expanded to using ~~Flask~~ [Vue.js](https://vuejs.org/) and
+[Firebase](https://firebase.google.com/) when I exceeded the scope of a static website
+with my contact form. I moved from Flask to Vue.js and Firebase to explore
+server-less deployments and because Firebase is a free hosting (or at least very cheap)
+hosting solution which allows TLS hosting.
 
 ## Usage
-Use `git clone https://github.com/dlubawy/mysite.git` to clone the repo.  Then 
-`cd mysite`. Use `pip install -r requirements.txt` to install dependencies. Change 
-whatever you want and setup your environment with `export FLASK_APP=mysite.py`.  
-Finally run the app `flask run`.
+
+### Configuration
+
+Replace the Firebase configuration in `src/firebaseConfig.js` to your own
+before use.
+
+### Project setup
+
+```
+npm install
+```
+
+#### Starts Firebase emulator for local testing
+
+```
+npm run serve
+```
+
+#### Compiles and minifies for production
+
+```
+npm run build
+```
+
+#### Lints and fixes files
+
+```
+npm run lint
+```
+
+#### Deploys to Firebase
+
+```
+npm run deploy
+```
+
+#### Customize configuration
+
+See [Configuration Reference](https://cli.vuejs.org/config/).
