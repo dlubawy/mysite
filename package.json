@@ -1,6 +1,6 @@
 {
   "name": "mysite",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "private": true,
   "scripts": {
     "serve": "npm run build:dev && (npm run build:watch & npm run serve:firebase)",
