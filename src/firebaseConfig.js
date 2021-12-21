@@ -23,6 +23,17 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+if (process.env.NODE_ENV === "development") {
+  const emulators = require("./firebaseEmulators.js");
+
+  emulators.connectFirestoreEmulator(db, "localhost", 8080);
+  emulators.connectAuthEmulator(auth, "http://localhost:9099");
+  self.FIREBASE_APPCHECK_DEBUG_TOKEN = process.env.VUE_APP_CHECK;
+}
+
 const appCheck = initializeAppCheck(app, {
   provider: new ReCaptchaV3Provider("6LcOyLQdAAAAAML71Vv35GBYNIoXtrQnAAQudkvK"),
 
@@ -30,8 +41,5 @@ const appCheck = initializeAppCheck(app, {
   // tokens as needed.
   isTokenAutoRefreshEnabled: true,
 });
-
-const auth = getAuth(app);
-const db = getFirestore(app);
 
 export { analytics, appCheck, auth, db };
