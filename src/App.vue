@@ -23,7 +23,7 @@
       </div>
       <div id="about">
         <br />
-        <div class="container">
+        <div class="container text-center">
           <div class="row gap-2">
             <div class="col-md-4 m-auto">
               <div class="container">
@@ -34,7 +34,7 @@
                 />
               </div>
             </div>
-            <div class="col text-center m-auto">
+            <div class="col m-auto">
               <h2>Hello! I'm Andrew Lubawy.</h2>
               <p class="lead">
                 Software Devloper for Analytical Mechanics Associates and
