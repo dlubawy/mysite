@@ -175,6 +175,9 @@ import ContactForm from "./components/ContactForm.vue";
 
 import { auth, analytics } from "./firebaseConfig.js";
 import { logEvent } from "firebase/analytics";
+import { signInAnonymously } from "firebase/auth";
+
+signInAnonymously(auth);
 
 var tag = document.URL.split("#")[1];
 if (tag == null) {
