@@ -23,7 +23,7 @@ before use.
 npm install
 ```
 
-#### Starts Firebase emulator for local testing
+#### Compiles, hot-reloads, and starts Firebase emulators
 
 ```
 npm run serve
@@ -41,7 +41,7 @@ npm run build
 npm run lint
 ```
 
-#### Deploys to Firebase
+#### Builds and deploys to Firebase
 
 ```
 npm run deploy
