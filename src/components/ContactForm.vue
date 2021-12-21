@@ -53,8 +53,9 @@
 </template>
 
 <script>
-import { db } from "../firebaseConfig.js";
+import { analytics, db } from "../firebaseConfig.js";
 import { collection, addDoc } from "firebase/firestore";
+import { logEvent } from "firebase/analytics";
 
 export default {
   name: "ContactForm",
@@ -81,6 +82,10 @@ export default {
           },
         }).then(() => {
           alert("Message sent!");
+          logEvent(analytics, "select_content", {
+            content_type: "form",
+            item_id: "email",
+          });
         });
       } else {
         alert("Message rejected.");
