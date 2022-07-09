@@ -37,12 +37,10 @@
             <div class="col m-auto">
               <h2>Hello! I'm Andrew Lubawy.</h2>
               <p class="lead">
-                Software Devloper for Analytical Mechanics Associates and
-                contractor for NASA Langley Research Center. Hacker in the
-                traditional sense through and through. I enjoy taking things
-                apart and learning what makes them tick. I also enjoy creating
-                things, so if you need something, I'll happily try and build it
-                for you.
+                Data Engineer for Cue Health. Ex-NASA contractor. Tech
+                entusiast. I enjoy taking things apart and learning what makes
+                them tick. I also enjoy creating things, so if you need
+                something, I'll happily try and build it for you.
               </p>
             </div>
           </div>
@@ -107,6 +105,19 @@
               <p class="lead">
                 Software development and object oriented language proficiency
                 with Python, Java, C++, and Ruby.
+              </p>
+            </div>
+            <div class="col">
+              <img
+                src="./assets/pipes.webp"
+                class="rounded"
+                width="200"
+                height="200"
+                alt="Pipes"
+              />
+              <p class="lead">
+                Data engineering using SQL, BigQuery, and dbt. Experience with
+                creating custom data pipelines using Python and GCP.
               </p>
             </div>
           </div>
